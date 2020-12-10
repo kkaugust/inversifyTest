@@ -1,0 +1,13 @@
+{
+  // this config for SRC files except TESTS
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "types": ["node"],
+    "sourceMap": true, // 🛑 FOR Sentry
+    "inlineSources": true, // 🛑 FOR Sentry
+    "sourceRoot": "apps/server/src/" // 🛑 FOR Sentry
+  },
+  "exclude": ["node_modules", "**/__tests__", "**/__mocks__"],
+  "include": ["src/**/*"]
+}

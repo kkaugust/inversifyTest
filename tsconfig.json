@@ -1,0 +1,19 @@
+{
+  // this config for SRC files except TESTS
+  "extends": "./bin/tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "skipLibCheck": true,
+    "types": ["node", "jest"],
+    "lib": ["es2017", "esnext.asynciterable"],
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "paths": {
+      "app/*": ["*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*", "bin/jest/typings.d.ts"]
+}
