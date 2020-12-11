@@ -9,6 +9,7 @@ import 'reflect-metadata';
 import { Server } from 'http';
 import express from 'express';
 import { boot } from './boot';
+import { ninja } from './inversify.config';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -28,7 +29,8 @@ function shutDown(server: Server) {
 
 boot(app).then((app) => {
   app.get('/', (_, res) => {
-    res.send('Hello World!');
+    const result = `Ninja fight: ${ninja.fight()} Ninja sneak: ${ninja.sneak()}`;
+    res.send(result);
   });
 
   const server = app.listen(port, () => {
